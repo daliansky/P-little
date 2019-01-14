@@ -1,0 +1,38 @@
+定制USB端口:
+
+一、选定初步的补丁文件：
+   通过win或者MAC，查询“XHC”控制器芯片的ID，如1e31,9d2f,a2af等。
+   根据查询到的ID，选定一个样本文件，或者以SSDT-UIAC-ALL为基础进行初步修改，形成自己的补丁文件。
+
+二、解除USB的数量限制：
+   在config.plis中添加“解除USB的数量限制”补丁，如果“USB端口”数量小于15个，忽略它。
+
+三、制作定制文件：
+1 打开IORegistryExplorer.APP，搜索“USB”。
+2 对着每个物理USB接口，插拔2.0U盘和3.0U盘，记录它的名称和位置；
+  对于内置的USB设备（蓝牙、摄像头等），记录它的名称和位置。
+  需要注意，同一个USB3.0接口会对应2个端口地址，一个是3.0的，一个是2.0的。
+  通常，2.0的在HSXX，3.0的在SSXX。
+3 打开补丁文件并对照记录，删除不存在或者不需要的端口内容。
+4 修改UsbConnector
+
+  对于EH01和EH02：
+  设定"portType"=0。忽略所有"UsbConnector"，也可尝试UsbConnector=0或者255。
+
+  对于XHC：
+  “UsbConnector”=3	USB2.0或者USB3.0
+  “UsbConnector”=255	内置
+  “UsbConnector”=8	typeC_usb2.0
+  “UsbConnector”=9	typeC_Switch
+  “UsbConnector”=10	typeC_noSwitch
+
+5 修改“port-count”。“port-count”是总线下的USB接口最大地址（不是接口数量）。
+6 查错、编译、另存为aml格式并放到patched。
+
+四、如果用了“解除USB的数量限制”补丁，完成以上之后删除它。
+
+注意：
+1 USB相关控制器名称必须是EH01、EH02、XHC。
+2 other下必须安装USBInjectAll.kext。
+
+*****END

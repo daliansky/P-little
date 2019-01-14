@@ -1,0 +1,15 @@
+
+一、说明
+当ACPI中包涵ECDT.aml文件时，如果ECDT.aml文件指明的LPC名称不是“LPCB”，在这种
+情况下使用“LPC to LPCB”将产生错误。为了避免错误，需修正ECDT.aml。
+
+二、修正方法
+1 clover界面F4提取ACPI。
+2 找到ECDT.aml文件，并打开。
+3 查看ECDT.aml里"Namepath"项，如果是...LPC...,应该修改为...LPCB...。
+  按照图1，图2，图3操作。
+4 保存ECDT.aml文件。
+5 config\ACPI\Dorp Table\添加ECDT.aml(见图4)，或者勾选“AutoMerge”。
+
+三、使用修正的ECDT.aml
+将修正的ECDT.aml放入patched。

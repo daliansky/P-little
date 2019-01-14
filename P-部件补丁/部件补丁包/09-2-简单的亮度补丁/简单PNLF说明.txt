@@ -1,0 +1,27 @@
+
+一、说明：
+1 按CPU类型整理出简单的亮度补丁文件。实现亮度调节，添加亮度条。
+2 完整的亮度补丁文件参见《自动化RM-PNLF》。
+
+二、补丁：
+SSDT-PNLF-SANDYIVY0x0E————2、3代CPU亮度补丁
+SSDT-PNLF-HASWELL-0x0F————4、5代CPU亮度补丁
+SSDT-PNLF-SKYLAKE-0x10————6、7代CPU亮度补丁
+SSDT-PNLF-COFFEELAKE-0x13————8代CPU亮度补丁
+
+三、补丁添加位置
+\_SB.PCI0.IGPU
+
+四、显卡名称要求：
+IGPU
+
+五、驱动
+无
+
+六、使用要求：
+1 WhateverGreen.kext 1.2.5版本以上。
+2 对号入座。
+
+
+===end
+

@@ -1,0 +1,24 @@
+
+一、说明：
+当XHC下有XSEL、ESEL、XWAK时，必须将其禁止。
+
+二、补丁：
+SSDT-XHC-ESEL3in1
+
+三、更名(见“基本更名.plist”)
+XSEL to XSEZ(0,N)或者
+XSEL to XSEZ(0,S)
+ESEL to ESEZ(0,N)或者
+ESEL to ESEZ(0,S)
+XWAK to XWAZ(0,N)或者
+XWAK to XWAZ(0,S)
+
+在DSDT中，根据XHC下的XSEL、ESEL、XWAK的数据类型选择对应的更名。
+如：数据类型是Serialized，选择对应的...,0,S)...
+如：数据类型是NotSerialized，选择对应的...,0,N)...
+见图示
+
+四、其他设备名称要求
+XHC名称：XHC
+
+===end

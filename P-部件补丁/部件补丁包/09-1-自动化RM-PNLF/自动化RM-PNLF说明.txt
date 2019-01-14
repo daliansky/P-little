@@ -1,0 +1,27 @@
+
+一、说明：
+1 添加亮度条，实现亮度调节。
+2 本补丁为RehabMan标准亮度补丁。
+参见亮度补丁：
+https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-PNLF.dsl
+配置文件：
+https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-RMCF.dsl
+
+二、补丁：
+略
+
+三、显卡名称要求：
+IGPU
+
+四、驱动
+一般情况下需要AppleBacklightFixup.kext。某些机器需要使用：IntelBacklight.kext。
+配置文件的BKLT，用于指定所选择的驱动。
+BKLT=0  选择 IntelBacklight.kext
+BKLT=1  选择 AppleBacklightFixup.kext
+
+五、其他
+配置文件其他参数的用法参见原文。
+
+
+===end
+

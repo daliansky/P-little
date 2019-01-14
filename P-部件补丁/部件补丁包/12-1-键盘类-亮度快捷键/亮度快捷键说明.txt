@@ -1,0 +1,45 @@
+
+一、说明：
+提供Thinkpad、dell某些机器、惠普AD112TU、联想小新等机器亮度快捷键补丁。
+
+二、补丁：
+
+SSDT-BrightKeyQ14Q15-TP————Thinkpad
+SSDT-BrightKeyQ64Q65-S2-2017————Thinkpad S2 2017
+SSDT-BrightKeyBRT6-Dell————dell
+SSDT-BrightKey-lenovoAir/ISK————联想小新
+SSDT-BrightKey-lenovoAir/IKB/IKBR/IWL————联想小新
+SSDT-BrightKeyQ13-HP-AD112TU————惠普
+
+三、更名：
+Thanked：
+_Q14 to XQ14(TP-up)
+_Q15 to XQ15(TP-down)
+
+_Q64 to XQ64(TP-S2-2017)
+_Q65 to XQ64(TP-S2-2017)
+
+dell：
+BRT6 to XRT6(dell)
+
+小新IKB/IKBR/IWL：
+_Q11 to XQ11(lenovoAir/IKB/IKBR/IWL)
+_Q12 to XQ12(lenovoAir/IKB/IKBR/IWL)
+
+小新lenovoAir/ISK
+_Q1C to XQ1C(lenovoAir/IKB/IKBR/IWL)
+_Q1D to XQ1D(lenovoAir/IKB/IKBR/IWL)
+
+惠普：
+_Q13 to XQ13(HP-updown)
+
+其他设备名称要求
+LPC名称：LPCB
+键盘1名称：PS2K
+键盘2名称：PS2M
+
+四、使用：
+对号入座
+
+===end
+

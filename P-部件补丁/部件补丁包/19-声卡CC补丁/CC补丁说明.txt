@@ -1,0 +1,16 @@
+一、补丁：
+SSDT-CC-ALC256————ALC256示例
+声卡CC库————多个声卡CC补丁数据库
+
+二、声卡名称要求(见“基本更名.plist”)
+HDEF
+
+三、使用：
+如果使用声卡CC补丁，在《声卡CC库》里查找对应的声卡型号，将Package数据包移至到
+SSDT-CC-ALC256补丁里，或者直接下载CC补丁文件。
+
+下载地址：
+https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/src
+
+===end
+

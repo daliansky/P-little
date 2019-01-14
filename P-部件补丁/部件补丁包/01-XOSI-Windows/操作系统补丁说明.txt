@@ -1,0 +1,24 @@
+*****
+*****
+一、说明：
+黑苹果必须的操作系统补丁。
+
+二、补丁
+SSDT-XOSI-win7
+SSDT-XOSI-win8
+SSDT-XOSI-win81
+SSDT-XOSI-win10
+SSDT-XOSI-Win10x
+
+三、更名(见“基本更名.plist”)：
+OSID to XSID
+_OSI to XOSI
+
+注意：
+OSID to XSID必须在_OSI to XOSI之前。
+
+四、使用：
+1 对于双系统，采用的补丁应和Windows系统一致。
+2 某些部件的具体要求。如，I2C要求操作系统补丁是SSDT-XOSI-win8以上。
+
+===end

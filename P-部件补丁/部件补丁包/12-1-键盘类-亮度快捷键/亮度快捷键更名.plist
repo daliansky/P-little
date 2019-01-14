@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>_Q11 to XQ11(lenovoAir/IKB/IKBR/IWL)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExMQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExMQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q12 to XQ12(lenovoAir/IKB/IKBR/IWL</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExMg==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExMg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q13 to XQ13(HP-updown)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExMw==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExMw==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q14 to XQ14(TP-up)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExNA==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExNA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q15 to XQ15(TP-down)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExNQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExNQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>BRT6 to XRT6(dell)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					QlJUNgI=
+					</data>
+					<key>Replace</key>
+					<data>
+					WFJUNgI=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q64 to XQ64(TP-S2-2017)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1E2NA==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFE2NA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q65 to XQ65(TP-S2-2017)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1E2NQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFE2NQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q1C to XQ1C(lenovoAir/IKB/IKBR/IWL)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExQw==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExQw==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q1D to XQ1D(lenovoAir/IKB/IKBR/IWL)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1ExRA==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExRA==
+					</data>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

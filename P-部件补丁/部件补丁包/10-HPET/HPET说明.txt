@@ -1,0 +1,16 @@
+
+一、说明：
+通常情况下，config勾选“FixHPET”即可实现HPET补丁。
+某些机器“FixHPET”失败致使无法睡眠，尝试本方法。
+
+二、补丁：
+SSDT-HPET-fix————HPET补丁
+
+三、更名：
+HPET:BUF0 to XUF0
+HPET:_STA to XSTA
+HPET:_CRS to XCRS
+
+
+===end
+

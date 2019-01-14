@@ -1,0 +1,21 @@
+
+一、说明：
+禁止不使用或者无法驱动的PCI设备，如PCI-SD卡等。
+又如：当I2C触摸板位于I2C1时，应当禁止I2C0总线设备。
+
+二、补丁：
+SSDT-PCI-SD-disable-430————禁止430系列的SD卡
+SSDT-PCI-SD-disable-5480————禁止dell5480的SD卡
+SSDT-PCI-I2C0-disable————禁止I2C0总线设备
+
+三、更名：
+DSDT中，确认对应设备下有无_STA？..,
+如果有，config将_STA更名为XSTA，然后添加补丁。
+如果无，直接添加补丁。
+如：I2C0:_STA to XSTA
+
+四、使用：
+通过win或者IORegistryExplorer，查找需要禁止的PCI设备的名称，修改样本文件的路径名称与其一致。
+
+===end
+

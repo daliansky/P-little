@@ -1,0 +1,24 @@
+
+一、说明：
+1 显示风扇转速。
+2 温度控制风扇转速。
+
+二、补丁：
+SSDT-Fans-TP————Thinkpad的风扇转速
+SSDT-Fans-Dell————Dell的风扇转速
+SSDT-FansToTEMP-TP————Thinkpad温度控制风扇转速
+
+三、设备名称要求：
+LPCB
+
+四、使用：
+对号入座
+
+注意:
+1：修改FakeSMC的
+Info.plist\IOKitPersonalities\FakeSMC\Configuration\keys\FNum\1\00为01
+
+2：other下添加ACPIPoller.kext。
+
+===end
+

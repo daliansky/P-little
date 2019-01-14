@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>NEVT to XEVT(dell)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					TkVWVAA=
+					</data>
+					<key>Replace</key>
+					<data>
+					WEVWVAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q13 to XQ13(TP-FnF4)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1ExMw==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExMw==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q2B to XQ2B(TP-LID)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1EyQg==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFEyQg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>_Q15 to XQ15(lenovoAir-LID)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1ExNQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExNQ==
+					</data>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

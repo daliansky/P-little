@@ -1,0 +1,57 @@
+说明：
+===
+ACPI规范了3种睡眠的方式，分别是：
+(1)• PNP0C0C — Power Button Device
+(2)• PNP0C0D — Lid Device
+(3)• PNP0C0E — Sleep Button Device
+
+通常情况下，黑苹果使用(2)方式睡眠。同时，ACPI也提供了(3)睡眠方式。
+当黑苹果启用(3)睡眠时，ACPI向系统传递了关机参数，致使黑苹果系统崩溃，睡眠失败。
+===
+本方法提供一种完备的睡眠方案：
+1 通过MODE选择(2)或者(3)睡眠方式；
+2 指定任意键(如：FN+F4)使用(3)睡眠方式。
+
+===
+准备工作：
+1 DSDT中，搜索PNP0C0E：
+  如果PNP0C0E存在，进一步确认其设备名称是否是SLPB，非SLPB更名为SLPB。
+  如果搜索不到PNP0C0E，添加SSDT-SLPB-add补丁。
+2 本方法需要综合补丁SSDT-%PTSWAK-mergePRO3配合完成。见《PTSWAK综合补丁》。
+
+===
+使用方法：
+一、SSDT-SleepDefine补丁
+该补丁设定了(3)睡眠方式必须的参数：MPWS，以及(2)和(3)方式的选择参数；MODE。
+MODE=0，使用(2)方式；
+MODE=1，使用(3)方式。
+
+二、SSDT-SleepLid-***补丁
+该补丁为盖子睡眠补丁，集成了(2)和(3)两种睡眠方式，由MODE选择睡眠方式。
+唤醒方法：开盖唤醒。
+不同的机器盖子的位置不同，比如：
+Thinkpad是_Q2B，Lenovo是_Q15。
+
+三、SSDT-SleepKey-***补丁
+该补丁为按键睡眠补丁，可以指定任意按键为睡眠按键。
+唤醒方法：盒盖开盖唤醒、电源键唤醒。
+样本中指定了Thinkpad机器的FN+F4为睡眠按键，FN+F4位置在_Q13。
+
+四、完成本方法的补丁组合：
+SSDT-SleepDefine + 
+SSDT-SleepLid-*** +
+SSDT-SleepKey-***
+以及：
+SSDT-%PTSWAK-mergePRO3 +
+SSDT-SLPB-add（可能）
+
+五、PNP0C0E(3)睡眠模式的特点：
+1 无论盒盖还是按下睡眠功能键，会立即睡眠，睡眠过程稍快于传统(2)方式。
+2 未成功睡眠前，无法终止睡眠。
+3 连接外显的情况下，睡眠正常。
+
+六、注意事项
+如果之前使用了本方法的早期方案，应当删除更名‘_LID to XLID’以及对应的补丁。
+
+===end
+

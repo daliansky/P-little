@@ -1,0 +1,18 @@
+
+一、说明：
+注入SATA的ID。
+使用新的WhateverGreen+lilu，在config\Device\Porperties下注入ID是更好的方法，
+见Properties方法。使用Properties方法，忽略本补丁。
+
+二、补丁：
+SSDT-SATA-auto————自动注入。
+SSDT-SATA————精简补丁，需自己填写注入内容。
+
+三、更名(见“基本更名.plist”)：
+SAT0 to SATA 或者
+SAT1 to SATA
+
+DSDT中搜索“0x001F0002”（6代以前）或者“0x00170000”(6代及以后)，将其设备名称更名为SATA。
+Properties方法不必更名。
+
+===end

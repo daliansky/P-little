@@ -1,0 +1,25 @@
+
+一、说明：
+驱动无线网卡4322、4352、4360等时，可采用以下方案：
+1 使用本方法的补丁；
+2 使用AirportBrcmFixup；
+3 使用本方法的补丁和AirportBrcmFixup。
+如果使用Properties方法，忽略本方法。
+
+二、补丁：
+SSDT-&WIFI-4322
+SSDT-&WIFI-4352(同4360)
+SSDT-&WIFI-9285-tp43
+
+三、更名：
+无
+
+四、使用
+查询无线网卡路径，修改补丁里的路径为本机路径。
+某些机器网卡路径缺失：
+  Device (PXSX) { Name (_ADR, Zero)}等字样(也可能不是PXSX)。
+  如果缺失以上，去掉注释“/*...*/”，并删除注释后面的External(..., DeviceObj)。
+  参考SSDT-&WIFI-9285-tp43。
+
+===end
+

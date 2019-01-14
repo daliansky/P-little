@@ -1,0 +1,33 @@
+
+一、说明：
+DSDT中关于键盘部件的描述有2部分，分别是PS2K(KBD)和PS2M(MOU)。
+它们的_CID分别是：
+PNP0303
+PNP030B
+PNP0320
+和：
+PNP0F03
+PNP0F0B
+PNP0F12
+PNP0F13
+PNP0F0E
+
+一般地，
+键盘PS2K(KBD)对应VoodooPS2Controller.kext驱动；
+键盘PS2M(MOU)对应ApplePS2SmartTouchPad.kext驱动。
+为了保证两个驱动都能正常工作，2个键盘部件都应该描述为“存在”。
+某些机器，第二键盘(PS2M)被禁止，致使ApplePS2SmartTouchPad.kext无法使用。
+本补丁用于解除DSDT对第二键盘的限制。
+
+注：如果第二键盘的名称不是PS2M,请更名为PS2M。
+
+二、补丁：
+SSDT-PS2M-enable
+
+三、更名：
+PS2M:_STA to XSTA
+PS2M:_CID to XCID
+
+
+===end
+
