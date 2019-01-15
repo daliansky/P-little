@@ -1,6 +1,1 @@
-# P-little
-hackintosh hotpatch
-
-Start Date: 1-9-2019
-
-Project maintenance: 宪武 黑果小兵 
+P-部件补丁.md
