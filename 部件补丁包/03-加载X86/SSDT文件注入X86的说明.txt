@@ -1,0 +1,30 @@
+*******
+一、说明
+以文件方式加载X86。
+
+二、补丁
+SSDT-PLUG_PR.CPU0
+SSDT-PLUG_PR.P000
+SSDT-PLUG_PR.PR00
+
+SSDT-PLUG_SB.CPU0
+SSDT-PLUG_SB.P000
+SSDT-PLUG_SB.PR00
+
+SSDT-PLUG-SCK0.C000
+SSDT-PLUG-SCK0.CPU0
+
+三、更名
+无
+
+四、使用
+DSDT中，搜索“Processor”，确定"CPU"名称以及所属"设备名称"，选择对应的补丁。
+参考"X86图示1"、"X86图示2"、"X86图示3"。
+如果"CPU"名称以及所属"设备名称"不在上述之列，请自行修改补丁。
+
+三、注意
+1 2代、3代机器只需勾选config\Kernel and Patches\KernelXCPM即可。
+2 不可勾选“PlusinType”。
+
+
+===end

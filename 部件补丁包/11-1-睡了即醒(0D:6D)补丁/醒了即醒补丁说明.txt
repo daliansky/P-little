@@ -1,0 +1,58 @@
+*******
+一、说明
+解决睡眠后立即被唤醒的问题。
+
+二、补丁
+SSDT-Sleep_PRW-0D/6D
+
+三、更名
+EH01:_PRW to XPRW 或者
+Scope:EH01:_PRW to XPRW————参考【Scope类_PRW更名】
+
+EH02:_PRW to XPRW 或者 
+Scope:EH02:_PRW to XPRW————参考【Scope类_PRW更名】
+
+XHC:_PRW to XPRW  或者
+Scope:XHC:_PRW to XPRW————参考【Scope类_PRW更名】
+
+XDCI:_PRW to XPRW
+HDEF:_PRW to XPRW
+HDAS:_PRW to XPRW
+AZAL:_PRW to XPRW
+GLAN:_PRW to XPRW
+IGBE:_PRW to XPRW
+CNVW:_PRW to XPRW
+
+以上更名必须在下列更名之后（见基本更名）：
+EHC1 to EH01
+EHC2 to EH02
+XHCI to XHC
+XHC1 to XHC
+
+四、使用
+1 查询下列设备(或者_ADR地址)的_PRW:
+(1)EHC1(_ADR, 0x001D0000)
+(2)EHC2(_ADR, 0x001A0000)
+(3)XHC或XHCI或XHC1(_ADR, 0x00140000)
+(4)XDCI(_ADR, 0x00140001)
+(5)声卡
+   6代以前：HDEF或者AZAL(_ADR, 0x001B0000)
+   6代以后：HDAS(_ADR, 0x001F0003)
+(6)以太网
+   6代以前：GLAN或者IGBE或者其他(_ADR, 0x00190000)
+   6代以后：GLAN或者IGBE或者其他(_ADR, 0x001F0006)
+(7)CNVW(_ADR, 0x00140003)
+根据存在‘_PRW’的设备，选择对应的更名。参考【Device类_PRW更名】、【Scope类_PRW更名】。
+
+傻瓜做法：
+选择全部更名。
+
+2 修改补丁的“PPPW”返回值
+DSDT中查看以上某个部件的“_PRW”内容(如XHC)，使“_PRW”第一个字节(0D或者6D)，
+与补丁中“PPPW”的第一个字节相同。
+
+五、建议
+先进行config更名，通过system-DSDT确定无误后，再添加补丁。
+
+
+===end

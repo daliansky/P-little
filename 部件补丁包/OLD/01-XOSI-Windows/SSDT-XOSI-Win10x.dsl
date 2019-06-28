@@ -33,8 +33,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "XOSI", 0)
             "Windows 2016",
             "Windows 2017",
             "Windows 2017.2",
-            "Windows 2018",
-            "Windows 2018.2",
+            "Windows 2018",            
         }        
         Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }

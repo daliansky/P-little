@@ -1,0 +1,36 @@
+*******
+一、说明
+所有补丁属于键盘类补丁，要求键盘名称是PS2K。
+
+二、补丁
+SSDT-Keyboard-TP————TP键盘补丁，含小红点漂移补丁1
+SSDT-RMCF-RedPoint-TP————TP小红点漂移补丁2
+SSDT-RMCF-Trackpad-enable————强制开启触摸板设置选项
+SSDT-RMCF-PrtSc-disable————禁止PrtSc。部分机器“PrtSc”按键可以禁止触摸板，该补丁
+			   使“禁止触摸板功能”失效。
+SSDT-RMCF-TrackpadAndPrtSc————补丁合并样本
+
+三、其他设备名称要求
+LPC名称：LPCB（见基本更名）
+
+四、使用
+1 SSDT-Keyboard-TP
+该补丁适用于Thinkpad。
+
+修改补丁里"RM,oem-id"和"RM,oem-table-id"的子项。选择适合自己的。
+如："T420"、"T460"、"T560"、"Thinkpad_ClickPad"等。
+
+2 SSDT-RMCF-***
+包涵“RMCF”的补丁不允许2个以上同时使用，如果有多个补丁使用要求，必须合并后再使用。
+参见合并样本：SSDT-RMCF-TrackpadAndPrtSc
+
+更多的键盘类补丁见：
+https://bitbucket.org/RehabMan/os-x-voodoo-ps2-controller/src
+
+
+五、注意
+使用SSDT-RMCF-Trackpad必须保证VoodooPS2Controller.kext\Contents\PlugIns\下有：
+VoodooPS2Mouse.kext。
+
+
+===end

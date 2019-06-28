@@ -1,0 +1,49 @@
+*******
+一、说明
+本模版为I2C补丁，自动适应中断和查询方式，
+适用于部分机器。
+
+二、补丁
+SSDT-I2C-GPI0
+SSDT-I2CX.DEV0_CRS模版
+SSDT-I2C1.TPD1_CRS----dell5480示例
+
+三、更名
+GPI0:_STA to XSTA
+DEV0:_CRS to XCRS（DEV0——I2C设备名称）
+
+四、使用
+(一)补丁组合及更名
+SSDT-I2C-GPI0【更名：GPI0:_STA to XSTA】
++
+SSDT-I2CX.DEV0_CRS模版（自行修改）【更名：DEV0:_CRS to XCRS】
++
+XOSI-Windows（见《XOSI-Windows》）【更名：_OSI to XOSI】
+
+当GPI0的_STA Return (0x0F)时，中断方式。
+当GPI0的_STA Return (0x00)时，查询方式。
+
+(二) 修改SSDT-I2CX.DEV0_CRS模版
+确认自己的I2C设备路径和名称，如：_SB.PCI0.I2C1.TPD1。
+1 修改模版文件的“I2CX”为“I2C1”。(三处)
+2 修改模版文件的“DEV0”为“TPD1”。(二处)
+3 修改模版文件的“0xFFF1”为原始DSDT中“TPD1”设备的I2cSerialBusV2。
+4 修改模版文件的“0xFFF2”为原始DSDT中“TPD1”设备的Interrupt。
+5 修改模版文件的“0xFFF3”为自己的“GPI0 Pin”(中断方式)。参考《查询GPI0-pin》。
+6 修改《I2C及CRS补丁模版更名》中的“FFFFFFFF”为TPD1的二进制数据（54504431）。
+
+(三)安装驱动
+根据自己的硬件安装适合的驱动。
+驱动下载地址：
+https://github.com/alexandred/VoodooI2C/releases
+
+
+五、注意
+1 选择正确的I2C设备驱动。
+2 使用《config禁止I2C系统驱动补丁.plist》。
+  或者删除SLE的AppleIntelLpssI2C.kext和AppleIntelLpssI2CController.kext。
+3 删除VoodooPS2Controller.kext\Contents\PlugIns\下的：
+  VoodooPS2Trackpad.kext。
+
+
+===end

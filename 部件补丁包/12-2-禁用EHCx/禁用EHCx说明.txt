@@ -1,0 +1,26 @@
+*******
+一、说明
+对于7,8,9系机器可能需要禁止USB2.0总线EHC1、EHC2。
+Properties方法可以实现同样结果。见《Properties-PCI设备补丁一览表》。
+
+二、补丁
+SSDT-EHC1_OFF————禁止EHC1
+SSDT-EHC2_OFF————禁止EHC2
+SSDT-EHCx_OFF————禁止EHC1和EHC2
+
+三、更名
+EHC1名称：EH01（见基本更名）
+EHC2名称：EH02（见基本更名）
+
+四、使用
+适用于下列情况：
+1 ACPI包含EHC1或者EHC2，而机器本身不存在相关硬件。
+2 如（1），机器虽然具有硬件但并没有实际输出接口。
+
+根据实际情况选择SSDT-EHC1_OFF，或者SSDT-EHC2_OFF，或者SSDT-EHCx_OFF。
+
+五、注意
+7系机器只能使用SSDT-EHC1_OFF或者SSDT-EHC2_OFF，不可同时使用。
+
+
+===end

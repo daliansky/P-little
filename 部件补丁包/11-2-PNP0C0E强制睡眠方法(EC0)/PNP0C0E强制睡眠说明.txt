@@ -1,0 +1,89 @@
+*******
+一、概述
+ACPI规范了3种睡眠的方式，分别是：
+方式(1)• PNP0C0C — Power Button Device
+方式(2)• PNP0C0D — Lid Device
+方式(3)• PNP0C0E — Sleep Button Device
+苹果系统使用菜单睡眠、系统睡眠和方式(2)睡眠。
+
+大多数机器提供了睡眠按键(‘小月亮’按键，如Thinkpad的FN+F4，dell的FN+Insert等)。
+当按下这个按键时，系统执行方式(3)睡眠。可是，ACPI错误地向系统传递了关机参数而非
+睡眠参数，从而使睡眠失败、系统崩溃。
+如果要使用方式(3)睡眠必须修正这个参数或者赋予睡眠按键执行方式(2)睡眠。
+
+二、PNP0C0D 和 PNP0C0E 的睡眠条件
+1 PNP0C0D睡眠：
+_LID返回0，执行Notify (***.LID0, 0x80)————【PNP0C0D】
+2 PNP0C0E睡眠：
+执行Notify (***.SLPB, 0x80)————【PNP0C0E】
+
+三、PNP0C0E强制睡眠方案(4--5个补丁)
+1 SSDT-SleepDefine
+  补丁里设定3个参数，分别是：MYLD、MPWS、MODE。
+
+  MYLD————控制Method (_LID 的返回参数。
+  0: 关闭屏幕
+  其他: 保持原始屏幕状态
+
+  MPWS————事件传递参数
+  PNP0C0E睡眠时，MPWS传递到_PTS和_WAK，纠正“关机参数”为“睡眠参数”。
+
+  MODE————睡眠模式
+  0: PNP0C0D睡眠
+  1: PNP0C0E睡眠
+  
+  三个参数中，修改MODE可以改变睡眠模式。
+  其他2个参数为各补丁调用之用，不可更改。
+
+2 SSDT-Sleep_SB.LID0 或者 SSDT-Sleep_SB.PCI0.LPCB.LID0
+  修正原始盖子Method (_LID... 方法。接收其他补丁对MYLD的操作。
+  使用时应根据盖子部件的路径选择对应的补丁。
+
+3 SSDT-SleepKeyLID0-***
+  按键和盖子强制睡眠集成补丁。
+  根据MODE模式向其他补丁传递MYLD和MPWS。
+
+4 SSDT-%PTSWAK-mergePRO5
+  接收MPWS，纠正“关机参数”为“睡眠参数”。见《PTSWAK综合补丁》。
+
+5 SSDT-SLPB(可能需要)
+  某些机器未定义SLPB【PNP0C0E】部件。强制睡眠方案需要SLPB部件。
+
+
+三、更名
+略
+
+
+五、其他设备名称要求
+盖子设备名称：LID0（见基本更名）
+
+
+六、制作SSDT-SleepKeyLID0-***的方法
+见《制作SSDT-SleepKeyLID0-***的方法》。
+
+
+七、完成强制睡眠方案的补丁组合
+SSDT-SleepDefine
++
+SSDT-Sleep_SB.LID0 或者 SSDT-Sleep_SB.PCI0.LPCB.LID0
++
+SSDT-SleepKeyLID0-***
++
+SSDT-%PTSWAK-mergePRO5
++
+SSDT-SLPB(可能需要)-----位于《添加丢失的部件》
+
+
+八、示例
+1 Thinkpad：
+见《Thinkpad按键盖子集成补丁和更名》
+
+2 Dell：
+见《Dell按键盖子集成补丁和更名》
+
+九、PNP0C0E睡眠模式的特点
+1 睡眠过程稍快于传统的方式。
+2 睡眠过程无法被终止。
+
+
+===end

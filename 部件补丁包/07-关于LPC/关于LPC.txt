@@ -1,0 +1,9 @@
+*******
+一、说明
+使用Properties方法注入LPC。参见《Properties-PCI设备补丁一览表》。
+
+二、注意
+7代以后机器无需注入LPC。
+
+
+===end

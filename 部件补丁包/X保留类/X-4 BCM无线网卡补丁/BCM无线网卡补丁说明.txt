@@ -1,0 +1,20 @@
+*******
+一、说明
+当AirportBrcmFixup无法驱动BCM无线网卡时，可采用补丁方法。
+
+二、补丁
+SSDT-EXP2-4322-tp43
+SSDT-PR03-4352_4360
+SSDT-RP05-4352_4360-Air-IKBR
+SSDT-RP08-4352_4360-Air-IWL
+
+三、更名
+无
+
+四、使用
+查询无线网卡设备路径，修改选定补丁里的路径为本机设备路径。
+某些机器网卡路径缺失：Device (PXSX) { Name (_ADR, Zero)}等字样(也可能不是PXSX)。
+如果缺失以上，添加“Device (PXSX) { Name (_ADR, Zero)}”。参考SSDT-EXP2-4322-tp43。
+
+
+===end

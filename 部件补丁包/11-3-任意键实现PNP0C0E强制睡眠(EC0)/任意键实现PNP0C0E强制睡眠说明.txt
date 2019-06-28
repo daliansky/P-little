@@ -1,0 +1,21 @@
+*******
+一、说明
+本补丁是《PNP0C0E强制睡眠方法》的一种特例。不涉及盖子方法的修补。
+用于指定(或者修复)一个按键来实现PNP0C0E睡眠。
+
+二、示例————Thinkpad机器
+1 补丁组合
+SSDT-SleepDefine	位于《PNP0C0E强制睡眠方法》
++
+SSDT-SleepKey-Q13-TP	本补丁
++
+SSDT-%PTSWAK-mergePRO5	位于《PTSWAK综合补丁》
+
+2 更名
+_Q13 to XQ13(TP-FnF4)
+
+三、注意
+非Thinkpad机器可能需要SSDT-SLPB，位于《添加丢失的部件》。
+
+
+===end

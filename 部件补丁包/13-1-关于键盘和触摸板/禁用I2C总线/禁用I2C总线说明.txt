@@ -1,0 +1,15 @@
+*******
+一、说明
+禁用I2C总线。
+
+二、补丁
+SSDT-I2CxBus-disable————————禁用I2C0、I2C1。
+SSDT-I2C0Bus-disable————————禁用I2C0。
+SSDT-I2C1Bus-disable————————禁用I2C1。
+
+三、更名
+I2C0:_STA to XSTA
+I2C1:_STA to XSTA
+
+
+===end

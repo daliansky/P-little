@@ -1,0 +1,64 @@
+*******
+一、说明
+用HOTpatch补丁驱动USB以及定制USB端口。
+
+二、基本要求
+1 清除Hackintool生成的USBPorts.kext和SSDT-UIAC.aml。
+2 清除RM的驱动USBInjectAll.kext和定制的SSDT-***文件。
+3 清除其他定制USB的方法。
+4 XHC控制器名称要求：XHC。
+5 USB2.0名称要求：EH01、EH02。
+
+三、准备工作
+1 提取ACPI
+2 搜索_UPC在DSDT和其他SSDT的存在情况：
+如果只有DSDT有_UPC，参见《制作补丁文件、定制端口》的方法一。
+如果只有SSDT有_UPC，参见《制作补丁文件、定制端口》的方法二。
+如果DSDT和SSDT都存在_UPC，本方法不适用。
+
+四、制作补丁文件、定制端口
+方法一：参考：《TP3代示例》
+更名：_UPC to XUPC(all)
+通过更名使USB失效。然后，我们重新写补丁文件。文件重新描述USB数量、每一个
+端口属性等。这些内容和实际的硬件完全一致。
+关于USB端口定义参见《USB的端口定义》。
+
+(一)XHC
+参考：SSDT-XHC-HUB@TP3x
+1 修改补丁里的路径、名称与DSDT的XHC路径、名称保持一致；
+2 增加、删除端口内容与实际硬件端口保持一致；
+3 参考《USB的端口定义》，修改_UPC内容。
+
+(二)EH01、EH02
+参考：SSDT-EH01-HUB@TP3x、SSDT-EH02-HUB@TP3x
+1 修改补丁里的路径、名称与DSDT的EHC1、EHC2路径、名称保持一致；
+2 参考《USB的端口定义》，修改_UPC内容。
+
+注意：
+XHC和EHCx对于不需要的USB端口处理方法不同：
+XHC：删除端口全部内容
+EHCx：修改端口_UPC的第一个字节为0。
+
+
+方法二：参考《dell5480示例》
+1 可能多个SSDT文件包括了_UPC，找出XHC的文件，复制到桌面，作为初始文件。
+2 修改初始文件：
+  (1)根据硬件情况，删除所有不需要的端口内容（_UPC所在的Scope（）{}部分）。
+  (2)将以下内容替换其他_UPC部分。
+	Name (_UPC, Package ()
+	{
+   		0xFF,
+   		XXXX, 
+   		0x00, 
+   		0x00
+	})
+  (3)参考《USB的端口定义》，修改_UPC的第二个字节(XXXX)。
+  (4)添加必要的外部引用，修复编译错误。
+  (5)保存文件，并将它添加到patched。
+  (6)保留其他内容。
+3 按“Length”或者“Table”方式drop掉XHC的原始文件(包含_UPC的SSDT文件)，如《drop图式》。
+注意：文件里的所有设备名称，应当是更名后的名称。
+比如：更名中使用了“XHCI to XHC”，而文件中包含了“XHCI”，那么必须将“XHCI”修改为“XHC”。
+
+
+===end

@@ -1,0 +1,28 @@
+*******
+一、说明
+1 集成关机变重启、唤醒后呼吸灯恢复正常等补丁。
+2 集成了EXT1、EXT2、EXT3、EXT4扩展补丁接口，
+  EXT1和EXT2位于_PTS的前、后。
+  EXT3和EXT4位于_WAK的前、后。
+3 和《PNP0C0E强制睡眠方法》一起共同实现PNP0C0E睡眠功能。
+4 保留传统屏蔽独显方法的接口。
+
+二、补丁
+SSDT-%PTSWAK-merge-PRO5
+
+三、更名
+_PTS to ZPTS(1,N)或者
+_PTS to ZPTS(1,S)
+_WAK to ZWAK(1,N)或者
+_WAK to ZWAK(1,S)
+
+根据_PTS和_WAK的数据类型选择对应的更名。
+如：数据类型是Serialized，选择对应的...,1,S)...
+如：数据类型是NotSerialized，选择对应的...,1,N)...
+见图示《选择不同的更名》
+
+四、其他设备名称要求
+XHC（见基本更名）
+
+
+===end

@@ -1,0 +1,24 @@
+*******
+一、说明
+1 修复环境光传感器问题或者仿冒环境光传感器。
+2 显示“自动调节亮度”选项。
+
+二、补丁
+SSDT-ALSxfix-ACPI0008————修复环境光传感器问题
+SSDT-ALS0————仿冒环境光传感器
+
+三、更名
+ALSD:_STA to XSTA(ACPI0008)
+
+四、使用
+DSDT中搜索“ACPI0008”：
+1 如果存在“ACPI0008”，且其路径名称为\ALSD，
+使用上述更名和补丁：SSDT-ALSxfix-ACPI0008。
+注意：如果路径名称为其他(比如_SB.ASL1)，需同时修改更名和补丁的相关内容与之匹配。
+
+2 如果不存在“ACPI0008”，使用SSDT-ALS0仿冒环境光传感器。
+出处：RehabMan
+参考：https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/hotpatch/SSDT-ALS0.dsl
+
+
+===end

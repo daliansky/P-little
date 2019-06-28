@@ -1,0 +1,32 @@
+*******
+一、说明
+黑苹果必须的操作系统补丁。
+
+二、补丁
+SSDT-XOSI-win7
+SSDT-XOSI-win8
+SSDT-XOSI-win81
+SSDT-XOSI-win10
+SSDT-XOSI-Win10x
+
+三、更名
+OSID to XSID
+_OSI to XOSI
+
+关于“OSID to XSID”：
+“OSID to XSID”和补丁无任何关系，只因为和“_OSI to XOSI”发生了冲突。
+当“_OSI to XOSI”时，会造成一处“OSID”被更名而出现错误。因此，先将
+“OSID”更名为其他，以避开这种错误。
+
+DSDT中有“OSID”时，应当“OSID to XSID”和“_OSI to XOSI”一同使用，
+并且“OSID to XSID”在“_OSI to XOSI”之前。
+
+四、使用
+1 对于双系统，补丁版本应和Windows系统版本一致。
+2 某些部件的具体要求。如:I2C要求操作系统补丁是SSDT-XOSI-win8以上。
+
+注:
+SSDT-XOSI-Win10x支持"Windows 2018.2"。
+
+
+===end
