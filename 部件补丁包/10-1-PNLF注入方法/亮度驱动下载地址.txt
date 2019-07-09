@@ -1,0 +1,15 @@
+亮度驱动：
+1 WhateverGreen.kext(需Lilu.kext)
+https://github.com/acidanthera/WhateverGreen/releases
+
+2 AppleBacklightFixup.kext
+https://bitbucket.org/RehabMan/applebacklightfixup/downloads/
+
+3 IntelBacklight.kext
+https://bitbucket.org/RehabMan/os-x-acpi-backlight/downloads/
+
+4 ACPIBacklight.kext
+https://bitbucket.org/RehabMan/os-x-intel-backlight/downloads/
+
+
+===end

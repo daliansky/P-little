@@ -1,0 +1,17 @@
+*******
+一、说明
+注入未被支持的XHC控制器ID。
+
+二、使用
+根据XHC控制器ID选择对应的驱动：
+ID：8CB1，8D31, A2AF, A36D, 9DED
+XHCI-unsupported.kext
+
+ID：1E31, 8C31, 8CB1, 8D31, 9C31, 9CB1
+FakePCIID.kext + FakePCIID_XHCIMux.kext
+
+三、注意
+除非必须，尽可能不使用FakePCIID.kext和它的组件。
+
+
+===end

@@ -1,0 +1,17 @@
+*******
+一、说明
+当ACPI中包涵ECDT.aml文件时，如果ECDT.aml文件指明的路径不是"\_SB.PCI0.LPCB.EC0"，
+需修正其路径以避免ACPI更名错误。
+
+二、修正方法
+1 提取ACPI。
+2 找到并打开ECDT.aml文件。
+3 查看ECDT.aml里"Namepath"项，修正其路径为："\_SB.PCI0.LPCB.EC0"。
+  按照图1，图2，图3操作。
+
+三、使用
+1 将修正的ECDT.aml放入patched。
+2 config\ACPI\Dorp Table\添加ECDT(见图4)。
+
+
+===end

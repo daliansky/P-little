@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>restore XSTA to _STA</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					WFNUQQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					X1NUQQ==
+					</data>
+					<key>TgtBridge</key>
+					<data>
+					WFhYWA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>restore XPRW to _PRW</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					WFBSVw==
+					</data>
+					<key>Replace</key>
+					<data>
+					X1BSVw==
+					</data>
+					<key>TgtBridge</key>
+					<data>
+					WFhYWA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>restore XCRS to _CRS</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					WENSUw==
+					</data>
+					<key>Replace</key>
+					<data>
+					X0NSUw==
+					</data>
+					<key>TgtBridge</key>
+					<data>
+					WFhYWA==
+					</data>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

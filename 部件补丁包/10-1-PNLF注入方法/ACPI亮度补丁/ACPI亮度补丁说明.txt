@@ -1,0 +1,25 @@
+*******
+一、说明
+1 按ACPI规范实现亮度调节，添加亮度条。
+2 常规亮度补丁方法不起作用时，尝试本方法。
+
+二、补丁
+SSDT-PNLF-ACPI
+
+三、显卡名称要求
+IGPU
+
+四、驱动
+ACPIBacklight.kext
+
+五、使用
+1 要求
+删除其他注入亮度方法有关的驱动、补丁、插件、APP、config“AddPNLF”等。
+
+2 修改补丁
+(一)提取本机ACPI
+(二)所有ACPI文件中搜索_BCL、_BCM、_BQC，记录它们所属设备名称(如LCD)。
+(三)修改SSDT-PNLF-ACPI文件中的“DD1F”为(二)中记录的名称(替换DD1F为LCD)。参考图示。
+
+
+===end

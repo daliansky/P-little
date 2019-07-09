@@ -1,0 +1,20 @@
+======================
+Thinkpad强制睡眠补丁组合
+======================
+一、补丁
+SSDT-SleepDefine
++
+SSDT-Sleep_SB.LID0
++
+SSDT-SleepKeyLID0-Q13Q2B-TP
++
+SSDT-%PTSWAK-mergePRO5
+
+二、更名
+_LID to XLID
+_Q13 to XQ13(TP-FnF4)
+_Q2B to XQ2B(TP-LID)
+
+
+
+===end

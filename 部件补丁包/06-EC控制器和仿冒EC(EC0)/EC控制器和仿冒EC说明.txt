@@ -1,0 +1,22 @@
+*******
+一、说明
+1 将EC控制器名称强制重命名为EC0。
+2 添加一个虚拟EC，用于USB电源管理。
+
+二、补丁
+SSDT-EC
+
+三、更名（见基本更名）
+EC to EC0
+H_EC to EC0
+ECDV to EC0(dell)
+
+四、其他设备名称要求
+LPC控制器名称：LPCB（见基本更名）
+
+五、使用
+1 搜索"PNP0C09"，如果机器原始EC控制器名称非‘EC0’，更名为‘EC0’。
+2 添加SSDT-EC到patched。
+
+
+===end

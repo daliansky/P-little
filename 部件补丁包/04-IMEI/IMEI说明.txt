@@ -1,0 +1,14 @@
+*******
+一、说明
+新版本的WhateverGreen+lilu会自动注入IMEI，无需对IMEI采取任何措施。
+
+二、注意
+当：
+2代CPU搭配7系主板时，通过Properties方法注入IMEI：
+PciRoot(0x0)/Pci(0x16,0x0):device-id, 3A1C0000
+
+3代CPU搭配6系主板时，通过Properties方法注入IMEI：
+PciRoot(0x0)/Pci(0x16,0x0):device-id, 3A1E0000
+
+
+===end

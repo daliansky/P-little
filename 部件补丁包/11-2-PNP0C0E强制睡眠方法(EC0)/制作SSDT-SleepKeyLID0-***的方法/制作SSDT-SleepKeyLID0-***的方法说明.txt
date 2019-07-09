@@ -1,0 +1,18 @@
+==============================
+制作SSDT-SleepKeyLID0-***的方法
+==============================
+
+1 ACPI中搜索“PNP0C0D”和“PNP0C0E”，确定其名称(如LID0和SLPB)和设备路径，选择补丁
+  SSDT-Sleep_SB.LID0或者SSDT-Sleep_SB.PCI0.LPCB.LID0。
+  如果不存在“PNP0C0E”，添加SSDT-SLPB。
+2 查找盖子位置和睡眠按键位置，一般情况下是EC的_Qxx。在_Qxx里有Notify (?.LID0, 0x80)
+  的是盖子位置，有Notify (?.SLPB, 0x80)的是睡眠按键位置。
+3 参照样本补丁和图示
+  (1) 修改_Q01、_Q22为自己的睡眠按键位置和盖子位置的名称。
+  (2) 修改Notify (***.LID0, 0x80)【PNP0C0D】路径。
+  (3) 修改Notify (***.SLPB, 0x80)【PNP0C0E】路径。
+  (4) 排错，修复外部引用路径。 
+4 完成睡眠按键和盖子更名。
+
+
+===end

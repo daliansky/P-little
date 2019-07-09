@@ -1,0 +1,23 @@
+*******
+一、说明
+提供综合补丁扩展的EXT1、EXT2、EXT3、EXT4标准模版以及示例。
+
+二、补丁
+SSDT-%EXT1-4模版	      	   	   EXT1、EXT2、EXT3、EXT4扩展补丁标准模版
+SSDT-%EXT3-Wake_SB.LID0		   解决某些机器唤醒后需按任意键亮屏的问题(_SB.LID)
+SSDT-%EXT3-Wake_SB.PCI0.LPCB.LID0  解决某些机器唤醒后需按任意键亮屏的问题(_SB.PCI0.LPCB.LID)
+SSDT-%EXT1-Shut		   	   强制关机补丁，需依据自己的CPU数据修改补丁相关内容
+
+三、更名：
+无
+
+四、其他设备名称要求
+盖子名称：LID0（见基本更名）
+LPC名称：LPCB（见基本更名）
+
+五、注意
+1 具有相同扩展名称的补丁不可同时使用。
+2 非必要尽可能不使用SSDT-%EXT1-Shut。
+
+
+===end

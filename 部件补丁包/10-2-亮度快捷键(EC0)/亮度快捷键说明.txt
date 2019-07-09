@@ -1,0 +1,44 @@
+*******
+一、说明
+提供Thinkpad、联想小新、dell、惠普AD112TU等机器亮度快捷键补丁。
+
+二、补丁
+SSDT-BKeySMEE-Dell————dell
+SSDT-BKeyQ0EQ0F-A580UR————A580UR
+SSDT-BKeyQ11Q12-LenAir_IKB_IKBR_IWL————联想小新
+SSDT-BKeyQ13-HP-AD112TU————惠普
+SSDT-BKeyQ14Q15-TP————Thinkpad
+SSDT-BKeyQ64Q65-S2-2017————Thinkpad S2 2017
+
+三、更名
+Thanked：
+_Q14 to XQ14(TP-up)
+_Q15 to XQ15(TP-down)
+
+_Q65 to XQ65(TP-S22017-up)
+_Q64 to XQ64(TP-S22017-down)
+
+小新IKB/IKBR/IWL：
+_Q12 to XQ12(lenAir/IKB/IKBR/IWL-up)
+_Q11 to XQ11(lenAir/IKB/IKBR/IWL-down)
+
+dell：
+SMEE to XMEE(dell)或者
+
+惠普：
+_Q13 to XQ13(HP-up/down)
+
+A580UR:
+_Q0E to XQ0E(A580UR)
+_Q0F to XQ0F(A580UR)
+
+四、其他设备名称要求
+LPC名称：LPCB
+键盘名称：PS2K
+EC名称：EC0
+
+五、使用
+对号入座
+
+
+===end

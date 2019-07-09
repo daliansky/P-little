@@ -1,0 +1,74 @@
+*******
+一、说明
+本方法提供对I2C设备实施HOTpatch补丁的一种解决方案。不涉及I2C补丁具体过程和细节。
+有关更多的I2C方面内容详见：
+1 @penghubingzhou：
+https://www.penghubingzhou.cn
+2 @bat.bat：
+https://github.com/williambj1/VoodooI2C-PreRelease/blob/master/触摸板补充.md#iv-查看-ioregisteryexplorer-里-voodooi2c-是否正常加载
+3 https://voodooi2c.github.io/#GPIO%20Pinning/GPIO%20Pinning
+4 https://www.tonymacx86.com/threads/voodooi2c-help-and-support.243378/
+5 Q群：837538729
+6 部件补丁：《I2C-CRS补丁模版》
+
+二、补丁工作原理
+1 禁止原I2C设备。
+2 仿冒一个新I2C设备：TPXX。
+3 TPXX与被禁止的I2C设备内容完全相同。
+
+必要条件：
+1 在DSDT中，I2C设备为“Device” ，非“Scope”。
+2 I2C设备“Device”以外未被引用。如果此条件不满足，请参考@bat.bat方法或者附1。
+
+三、示例
+假定I2C设备路径是：_SB.PCI0.I2C1.TPD1
+参考：
+更名：I2C1-TPD1:_STA to XSTA
+补丁：SSDT-I2C-TPxx-dell5480
+
+补丁文件：
+1 禁止原TPD1，见下《注1》。
+2 I2C1下创建一个TPXX设备：Device (TPXX)。
+3 将DSDT中Device (TPD1）的所有内容移植到补丁文件中的Device (TPXX)里。
+4 替换补丁文件中所有的TPD1为TPXX。
+5 修正TPXX中_STA部分，见下《注2》。
+6 添加必要的外部引用External...修补所有错误。
+
+注1：
+Method (_STA, 0, NotSerialized)
+{
+   If (_OSI ("Darwin"))
+   {
+      Return (Zero)
+   }
+   Else
+   {
+      原I2C设备STA部分
+   }
+}
+
+注2：
+Method (_STA, 0, NotSerialized)
+{
+   If (_OSI ("Darwin"))
+   {
+      原I2C设备STA部分
+   }
+   Else
+   {
+      Return (Zero)
+   }
+}
+
+
+=====
+附1:
+新建设备方法二（此方法多使用一个更名）
+1 原I2C设备更名为其他名称（不可全局更名）。
+2 禁止已更名的I2C设备。
+3 新建一个和原I2C设备同名的设备。
+4 移植原I2C设备内容到新设备里。
+5 排错。
+
+
+===end

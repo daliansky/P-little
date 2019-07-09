@@ -1,0 +1,29 @@
+*******
+一、说明
+可能缺失以下设备。添加这些设备只是一种完善方案，非必要！
+
+二、补丁
+SSDT-DMAC
+SSDT-MCHC
+SSDT-MEM2
+SSDT-PPMC
+SSDT-PWRB
+SSDT-SLPB
+
+三、更名
+无
+
+四、其他设备名称要求
+LPC名称：LPCB（见基本更名）
+
+五、使用
+DSDT中，
+1 搜索PNP0200，如果缺失，可添加SSDT-DMAC。
+2 搜索MCHC，如果缺失，可添加SSDT-MCHC，或者勾选config的“AddMCHC”。
+2 搜索PNP0C01，如果缺失，可添加SSDT-MEM2。
+2 6代以后机器，搜索0x001F0002，如果缺失，可添加SSDT-PPMC。
+2 搜索PNP0C0C，如果缺失，可添加SSDT-PWRB。
+2 搜索PNP0C0E，如果缺失，可添加SSDT-SLPB。
+
+
+===end

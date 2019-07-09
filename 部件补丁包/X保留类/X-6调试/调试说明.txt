@@ -1,0 +1,22 @@
+*******
+一、说明
+调试ACPI工作过程。
+
+二、补丁
+SSDT-RMDT————基本补丁
+SSDT-TEST-Q66————调试补丁样本
+
+三、更名
+_Q66 to XQ66（‘调试补丁样本’更名）
+
+四、驱动
+ACPIDebug.kext————安装于other
+
+五、使用
+1 参考调试补丁样本，在调试处添加调试代码，如：\RMDT.P1("AAA")。
+2 打开‘控制台’，搜索‘AAA’。
+
+六、注意
+RMDT调试代码可以多样化，如：\RMDT.P1、\RMDT.P2、\RMDT.P3等等，参见SSDT-RMDT.dsl。
+
+===end

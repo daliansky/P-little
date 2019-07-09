@@ -1,0 +1,19 @@
+*******
+一、说明
+一些机器无以太网，仿冒以太网实现APP正常下载功能。
+
+出处：RehabMan
+参考：https://bitbucket.org/RehabMan/os-x-null-ethernet/src/75034b3a3657bc6450eb08632c6eb9e2c2ad43dc/SSDT-RMNE.dsl?at=master&fileviewer=file-view-default
+
+二、补丁
+SSDT-LAN
+
+三、更名
+无
+
+四、使用
+1 SSDT-LAN 添加到 patched。
+2 安装NullEthernet.kext、NullEthernetInjector.kext至other。
+
+
+===end

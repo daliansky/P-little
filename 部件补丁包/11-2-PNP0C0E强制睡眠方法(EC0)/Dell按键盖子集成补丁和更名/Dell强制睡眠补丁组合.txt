@@ -1,0 +1,18 @@
+==================
+Dell强制睡眠补丁组合
+==================
+一、补丁
+SSDT-SleepDefine
++
+SSDT-Sleep_SB.LID0
++
+SSDT-SleepKeyLID0-BTNV-dell
++
+SSDT-%PTSWAK-mergePRO5
+
+二、更名
+_LID to XLID
+BTNV to XTNV(dell)
+
+
+===end
